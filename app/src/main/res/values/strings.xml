@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">ForLove</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home"></string>
+    <string name="title_recommend"></string>
+    <string name="title_massage"></string>
+    <string name="title_myself"></string>
 </resources>

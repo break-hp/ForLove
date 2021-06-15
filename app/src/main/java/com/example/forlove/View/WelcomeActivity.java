@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import com.example.forlove.Base.BaseActivity;
 import com.example.forlove.Presenter.WelcomePresenter;
 import com.example.forlove.R;
-import com.example.forlove.SP.SPUser;
 
 public class WelcomeActivity extends BaseActivity<WelcomePresenter> {
 
@@ -24,7 +23,7 @@ public class WelcomeActivity extends BaseActivity<WelcomePresenter> {
         imageView = findViewById(R.id.imageView2);
         imageView2 = findViewById(R.id.imageView3);
         Animation animation = AnimationUtils.loadAnimation(WelcomeActivity.this, R.anim.view_anim_rotate);
-        Animation animation2 = AnimationUtils.loadAnimation(WelcomeActivity.this, R.anim.view_anim_translate);
+        Animation animation2 = AnimationUtils.loadAnimation(WelcomeActivity.this, R.anim.view_anim_right);
         imageView.startAnimation(animation);
         imageView2.startAnimation(animation2);
         Intent intent1 = new Intent(this, LoginActivity.class);
@@ -39,7 +38,7 @@ public class WelcomeActivity extends BaseActivity<WelcomePresenter> {
 //                    startActivity(intent2); //执行
 //                }
                 //加入数据请求，获取主界面初始数据
-//                finish();
+                finish();
             }
         });
     }
@@ -47,5 +46,14 @@ public class WelcomeActivity extends BaseActivity<WelcomePresenter> {
     @Override
     public WelcomePresenter initPresenter() {
         return new WelcomePresenter(WelcomeActivity.this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Animation animation = AnimationUtils.loadAnimation(WelcomeActivity.this, R.anim.view_anim_rotate);
+        Animation animation2 = AnimationUtils.loadAnimation(WelcomeActivity.this, R.anim.view_anim_right);
+        imageView.startAnimation(animation);
+        imageView2.startAnimation(animation2);
     }
 }

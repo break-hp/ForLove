@@ -15,9 +15,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ForLove">
-        <activity android:name=".View.LoginActivity"></activity>
         <activity
             android:name=".View.WelcomeActivity"
+            android:label="@string/title_activity_main"></activity>
+        <activity android:name=".View.UserAgreementActivity" />
+        <activity android:name=".View.LoginActivity" />
+        <activity
+            android:name=".View.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

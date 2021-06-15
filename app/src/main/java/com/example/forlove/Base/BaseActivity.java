@@ -24,6 +24,7 @@ public abstract class BaseActivity<P extends BasePresenter>
         mPresenter = initPresenter();
         getSupportActionBar().hide();
         //隐藏标题栏
+        setAndroidNativeLightStatusBar(this,true);
     }
 
 
@@ -39,7 +40,15 @@ public abstract class BaseActivity<P extends BasePresenter>
     public void windowManege(){
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
-    // 构造实际所需的prensenter
+//     构造实际所需的prensenter
     public abstract P initPresenter();
-
+//    设置状态栏的颜色
+    public static void setAndroidNativeLightStatusBar(Activity activity, boolean dark) {
+        View decor = activity.getWindow().getDecorView();
+        if (dark) {
+            decor.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        } else {
+            decor.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+        }
+    }
 }

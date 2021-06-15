@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
+    android:id="@+id/mobile_navigation2"
     app:startDestination="@+id/navigation_home">
 
     <fragment
@@ -12,14 +12,19 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.forlove.View.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_recommend"
+        android:name="com.example.forlove.View.ui.recommend.RecommendFragment"
+        android:label="@string/title_recommend"
+        tools:layout="@layout/fragment_recommend" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.forlove.View.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_massage"
+        android:name="com.example.forlove.View.ui.massage.MassageFragment"
+        android:label="@string/title_massage"
+        tools:layout="@layout/fragment_massage" />
+    <fragment
+        android:id="@+id/navigation_myself"
+        android:name="com.example.forlove.View.ui.myself.MyselfFragment"
+        android:label="@string/title_massage"
+        tools:layout="@layout/fragment_myself" />
 </navigation>

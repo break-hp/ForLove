@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@mipmap/nav_home"
+        android:title="@string/title_home">
+    </item>
+    <item
+        android:id="@+id/navigation_recommend"
+        android:icon="@mipmap/nav_recommend"
+        android:title="@string/title_recommend" />
+
+    <item
+        android:id="@+id/navigation_massage"
+        android:icon="@mipmap/nav_massage"
+        android:title="@string/title_massage" />
+    <item
+        android:id="@+id/navigation_myself"
+        android:icon="@mipmap/nav_myself"
+        android:title="@string/title_myself" />
+
+</menu>

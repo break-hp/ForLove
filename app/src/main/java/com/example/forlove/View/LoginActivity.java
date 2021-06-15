@@ -2,6 +2,7 @@ package com.example.forlove.View;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -26,6 +27,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements View.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         initView();
+        setAndroidNativeLightStatusBar(LoginActivity.this,true);
     }
 
     private void initView() {
@@ -48,10 +50,14 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements View.
         edtCode.setOnClickListener(this);
         cWechat.setOnClickListener(this);
         cQQ.setOnClickListener(this);
-//        Animation animation = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.view_anim_rotate);
-//        Animation animation2 = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.view_anim_translate);
-//        imageView.startAnimation(animation);
-//        imageView2.startAnimation(animation2);
+        Animation animation1 = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.view_anim_scale);
+        Animation animation2 = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.view_anim_up);
+        welCome.startAnimation(animation1);
+        cPhone.startAnimation(animation2);
+        cCode.startAnimation(animation2);
+        signIn.startAnimation(animation2);
+        cWechat.startAnimation(animation2);
+        cQQ.startAnimation(animation2);
     }
 
     @Override
@@ -65,19 +71,28 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements View.
             case R.id.back:
                 finish();
                 break;
-            case R.id.getCode:
-                break;
-            case R.id.signIn:
-                break;
-            case R.id.userAgreement:
-                break;
             case R.id.edtPhone:
                 break;
             case R.id.edtCode:
                 break;
+            case R.id.getCode:
+//                请求短信验证码
+                break;
+            case R.id.signIn:
+//                获取token，登录
+                Intent intent1 = new Intent(this, MainActivity.class);
+                startActivity(intent1); //执行
+                finish();
+                break;
             case R.id.cWechat:
+//                跳转微信授权
                 break;
             case R.id.cQQ:
+                break;
+            case R.id.userAgreement:
+//                用户协议
+                Intent intent = new Intent(this, UserAgreementActivity.class);
+                startActivity(intent); //执行
                 break;
             default:
                 break;
