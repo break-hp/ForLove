@@ -19,10 +19,4 @@
         app:lottie_fileName="cat.json"
         app:lottie_loop="true"
         tools:ignore="MissingConstraints" />
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints"
-        app:menu="@menu/bottom_nav_menu"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

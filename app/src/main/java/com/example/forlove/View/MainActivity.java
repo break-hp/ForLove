@@ -22,6 +22,9 @@ import androidx.navigation.ui.NavigationUI;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class MainActivity extends BaseActivity<MainPresenter> {
 
@@ -56,15 +59,15 @@ public class MainActivity extends BaseActivity<MainPresenter> {
                         break;
                     case R.id.navigation_recommend:
 //                        viewPager.setCurrentItem(1);
-                        showAnimate(item);
+//                        showAnimate(item);
                         break;
                     case R.id.navigation_massage:
 //                        viewPager.setCurrentItem(2);
-                        showAnimate(item);
+//                        showAnimate(item);
                         break;
                     case R.id.navigation_myself:
 //                        viewPager.setCurrentItem(3);
-                        showAnimate(item);
+//                        showAnimate(item);
                         break;
                 }
                 return false;
@@ -81,14 +84,28 @@ public class MainActivity extends BaseActivity<MainPresenter> {
         hideAnimate();
         menuItem= item;
         //这里使用一个ImageView设置成MenuItem的ActionView，这样我们就可以使用这个ImageView显示旋转动画了
-        ImageView qrView = (ImageView) getLayoutInflater().inflate(R.layout.action_view, null);
-        qrView.setImageResource(R.mipmap.nav_home);
-        menuItem.setActionView(qrView);
+        ImageView imageView = findViewById(R.id.imageView9);
+        imageView.setImageResource(R.mipmap.nav_home);
+
+//        ImageView qrView = (ImageView) getLayoutInflater().inflate(R.layout.action_view, null);
+//        menuItem.setActionView(qrView);
+
+        menuItem.setActionView(imageView);
         //显示动画
         Animation animation = AnimationUtils.loadAnimation(this,R.anim.shake);
         animation.setRepeatMode(Animation.RESTART);
         animation.setRepeatCount(Animation.INFINITE);
-        qrView.startAnimation(animation);
+
+        imageView.startAnimation(animation);
+
+//        qrView.startAnimation(animation);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(getBaseContext(),"就是这样",Toast.LENGTH_SHORT).show();
+//                hideAnimate();
+            }
+        });
     }
     /**
      * 关闭动画
