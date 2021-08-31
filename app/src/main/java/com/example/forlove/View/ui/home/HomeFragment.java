@@ -46,14 +46,14 @@ public class HomeFragment extends Fragment {
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-//hhhh
+
             }
         });
         tableLayout = root.findViewById(R.id.tablayout);
         viewPager = root.findViewById(R.id.viewpager);
         fragments.add(new SonFragment());
         fragments.add(new SonFragment());
-        FragmentPagerAdapter adapter = new MyAdapter(getChildFragmentManager(),fragments, new String[]{"综合", "上周"});
+        FragmentPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager(),fragments, new String[]{"综合", "上周"});
         //获取子fragment才会重新加载
         viewPager.setAdapter(adapter);
         tableLayout.setupWithViewPager(viewPager);
@@ -65,37 +65,5 @@ public class HomeFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
-    }
-    class MyAdapter extends FragmentPagerAdapter {
-        private List<Fragment> list;
-        private String[] titles;
-        private Context context;
-        public MyAdapter(FragmentManager mFragmentManager,
-                                List fragmentList, String[] title) {
-            super(mFragmentManager);
-            list = fragmentList;
-            titles=title;
-        }
-        @Override
-        public Fragment getItem(int i) {
-            Fragment fragment = null;
-            if (i < list.size()) {
-                fragment = list.get(i);
-            } else {
-                fragment = list.get(0);
-            }
-            return fragment;
-        }
-
-        @Override
-        public int getCount() {
-            return list.size();
-        }
-        @Override
-        public CharSequence getPageTitle(int position) {
-            if (titles != null && titles.length > 0)
-                return titles[position];
-            return null;
-        }
     }
 }
